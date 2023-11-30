@@ -1,0 +1,20 @@
+{
+  "name": "weather-cli",
+  "version": "1.0.0",
+  "description": "Weather CLI project",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon index.js"
+  },
+  "keywords": [
+    "weather",
+    "weather-cli",
+    "ob-havo"
+  ],
+  "author": "Will Marco",
+  "license": "ISC",
+  "devDependencies": {
+    "nodemon": "^3.0.1"
+  }
+}
