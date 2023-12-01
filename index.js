@@ -1,18 +1,20 @@
-const getArgs = require('./helpers/args')
+import getArgs from "./helpers/args.js";
+import { printError, printHelp, printSuccess } from "./services/log.service.js"
 
 const startCLI = () => {
-    const args = getArgs(process.argv)
+  const args = getArgs(process.argv);
     
-    if (args.h) {
-        // help
-    }
-    if (args.s) {
-        // save city
-    }
-    if (args.t) {
-        // save token
-    }
+  if (args.h) {
+      printHelp()
+    // help
+  }
+  if (args.s) {
+    // save city
+  }
+  if (args.t) {
+    // save token
+  }
 
-    //result
-}
-startCLI() 
+  //result
+};
+startCLI();

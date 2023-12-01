@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "Weather CLI project",
   "main": "index.js",
+  "type": "module",
   "scripts": {
     "start": "node index.js",
     "dev": "nodemon index.js"
@@ -16,5 +17,9 @@
   "license": "ISC",
   "devDependencies": {
     "nodemon": "^3.0.1"
+  },
+  "dependencies": {
+    "chalk": "^5.3.0",
+    "dedent-js": "^1.0.1"
   }
 }
