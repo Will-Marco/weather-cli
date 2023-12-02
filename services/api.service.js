@@ -2,7 +2,7 @@ import axios from "axios";
 import { TOKEN_LIB, getKeyValue } from "./storage.service.js";
 
 const getWeather = async (city) => {
-  const token = await getKeyValue(TOKEN_LIB.token);
+  const token = process.env.TOKEN ?? (await getKeyValue(TOKEN_LIB.token));
 
   if (!token) {
     throw new Error("API dosn't exist, -t: [API_KEY] for saving token ");
@@ -19,6 +19,7 @@ const getWeather = async (city) => {
       },
     }
   );
+
   return data;
 };
 
