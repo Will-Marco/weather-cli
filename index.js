@@ -1,6 +1,11 @@
 import getArgs from "./helpers/args.js";
-import { getWeather } from "./services/api.service.js";
-import { printError, printHelp, printSuccess } from "./services/log.service.js";
+import { getIcon, getWeather } from "./services/api.service.js";
+import {
+  printError,
+  printHelp,
+  printSuccess,
+  printWeather,
+} from "./services/log.service.js";
 import {
   DATA_LIB,
   getKeyValue,
@@ -37,7 +42,7 @@ const getForcast = async () => {
   try {
     const city = process.env.CITY ?? (await getKeyValue(DATA_LIB.city));
     const response = await getWeather(city);
-    console.log(response);
+    printWeather(response, getIcon(response.weather[0].icon));
   } catch (error) {
     if (error?.response?.status == 404) {
       printError("City not found");
