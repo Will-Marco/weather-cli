@@ -1,10 +1,15 @@
 import getArgs from "./helpers/args.js";
+import { getWeather } from "./services/api.service.js";
 import { printError, printHelp, printSuccess } from "./services/log.service.js";
-import { saveKeyValue } from "./services/storage.service.js";
+import { TOKEN_LIB, saveKeyValue } from "./services/storage.service.js";
 
 const saveToken = async (token) => {
+  if (!token.length) {
+    printError("Token doesn't exist");
+    return;
+  }
   try {
-    await saveKeyValue("token", token);
+    await saveKeyValue("token", TOKEN_LIB.token);
     printSuccess("Token saved successfully");
   } catch (error) {
     printError(error.message);
@@ -16,8 +21,8 @@ const startCLI = () => {
 
   if (args.h) {
     printHelp();
-    // help
   }
+  
   if (args.s) {
     // save city
   }
@@ -26,6 +31,6 @@ const startCLI = () => {
     // save token
   }
 
-  //result
+  getWeather('London')
 };
 startCLI();
