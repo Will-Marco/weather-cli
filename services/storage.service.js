@@ -4,10 +4,10 @@ import fs from "fs";
 
 const filePath = path.join(os.homedir(), "weather.json");
 
-const TOKEN_LIB = {
-  token: 'token',
-  city: 'city',
-}
+const DATA_LIB = {
+  token: "token",
+  city: "city",
+};
 
 const saveKeyValue = async (key, value) => {
   let data = {};
@@ -17,7 +17,7 @@ const saveKeyValue = async (key, value) => {
     data = JSON.parse(file);
   }
 
-  data[key] = value;``
+  data[key] = value;
   await fs.promises.writeFile(filePath, JSON.stringify(data));
 };
 
@@ -40,4 +40,4 @@ const isExist = async (path) => {
   }
 };
 
-export { saveKeyValue, getKeyValue, TOKEN_LIB };
+export { saveKeyValue, getKeyValue, DATA_LIB };
